@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Celebration</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">
+                <span class="title-line">Happy Birthday</span>
+                <span class="title-line"><span class="highlight">✨</span>🎂<span class="highlight">✨</span></span>
+            </h1>
+            <p class="subtitle">A celebration of joy, memories, and beautiful moments</p>
+        </header>
+        
+        <!-- Gift Section -->
+        <section class="gift-section">
+            <div class="gift-container">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-lid">
+                        <div class="gift-bow">
+                            <div class="bow-center"></div>
+                            <div class="bow-loop left"></div>
+                            <div class="bow-loop right"></div>
+                        </div>
+                    </div>
+                    <div class="gift-body">
+                        <div class="ribbon vertical"></div>
+                        <div class="ribbon horizontal"></div>
+                    </div>
+                </div>
+                <p class="instruction">Click the gift to reveal a special message</p>
+            </div>
+        </section>
+        
+        <!-- Birthday Card (Initially Hidden) -->
+        <section class="card-section hidden" id="cardSection">
+            <div class="birthday-card">
+                <div class="card-header">
+                    <h2 class="card-title">A Special Message</h2>
+                    <div class="card-decoration">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-message">
+                        On this wonderful day, I wish you endless joy, laughter, and beautiful memories. 
+                        May your year ahead be filled with exciting adventures, personal growth, and moments 
+                        that make your heart smile. You deserve all the happiness in the world.
+                    </p>
+                    <p class="card-message">
+                        Celebrate yourself today and always remember how special you are to those around you. 
+                        Here's to another amazing year!
+                    </p>
+                    <div class="card-signature">
+                        <p>With love,</p>
+                        <p class="signature">Your Friends & Family</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="sparkle"><i class="fas fa-star"></i></div>
+                    <div class="sparkle"><i class="fas fa-star"></i></div>
+                    <div class="sparkle"><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Photo Gallery (Initially Hidden) -->
+        <section class="gallery-section hidden" id="gallerySection">
+            <h2 class="gallery-title">Beautiful Memories</h2>
+            <p class="gallery-subtitle">Moments worth celebrating</p>
+            
+            <div class="photo-gallery">
+                <!-- Photo 1 -->
+                <div class="photo-container fade-in">
+                    <div class="photo-frame">
+                        <img src="images/photo1.jpg" alt="Birthday memory 1" class="photo" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                        <div class="photo-caption">Joyful Celebration</div>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="photo-container fade-in delayed-1">
+                    <div class="photo-frame">
+                        <img src="images/photo2.jpg" alt="Birthday memory 2" class="photo" onerror="this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                        <div class="photo-caption">Sweet Moments</div>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="photo-container fade-in delayed-2">
+                    <div class="photo-frame">
+                        <img src="images/photo3.jpg" alt="Birthday memory 3" class="photo" onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                        <div class="photo-caption">Cherished Times</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">Made with <i class="fas fa-heart"></i> for a special celebration</p>
+            <p class="copyright">© <span id="currentYear"></span> Birthday Wishes</p>
+        </footer>
+    </main>
+    
+    <!-- Confetti Container -->
+    <div id="confettiContainer"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
