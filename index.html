@@ -78,36 +78,39 @@
         </section>
         
         <!-- Photo Gallery (Initially Hidden) -->
-        <section class="gallery-section hidden" id="gallerySection">
-            <h2 class="gallery-title">Beautiful Memories</h2>
-            <p class="gallery-subtitle">Moments worth celebrating</p>
-            
-            <div class="photo-gallery">
-                <!-- Photo 1 -->
-                <div class="photo-container fade-in">
-                    <div class="photo-frame">
-                        <img src="images/photo1.jpg" alt="Birthday memory 1" class="photo" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
-                        <div class="photo-caption">Joyful Celebration</div>
-                    </div>
-                </div>
-                
-                <!-- Photo 2 -->
-                <div class="photo-container fade-in delayed-1">
-                    <div class="photo-frame">
-                        <img src="images/photo2.jpg" alt="Birthday memory 2" class="photo" onerror="this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
-                        <div class="photo-caption">Sweet Moments</div>
-                    </div>
-                </div>
-                
-                <!-- Photo 3 -->
-                <div class="photo-container fade-in delayed-2">
-                    <div class="photo-frame">
-                        <img src="images/photo3.jpg" alt="Birthday memory 3" class="photo" onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
-                        <div class="photo-caption">Cherished Times</div>
-                    </div>
-                </div>
+<section class="gallery-section hidden" id="gallerySection">
+    <h2 class="gallery-title">Beautiful Memories</h2>
+    <p class="gallery-subtitle">Moments worth celebrating</p>
+    
+    <div class="photo-gallery">
+        <!-- Photo 1 - Will try PNG first, then JPG as fallback -->
+        <div class="photo-container fade-in">
+            <div class="photo-frame">
+                <img src="images/photo1.png" alt="Birthday memory 1" class="photo" 
+                     onerror="this.onerror=null; this.src='images/photo1.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
+                <div class="photo-caption">Joyful Celebration</div>
             </div>
-        </section>
+        </div>
+        
+        <!-- Photo 2 -->
+        <div class="photo-container fade-in delayed-1">
+            <div class="photo-frame">
+                <img src="images/photo2.png" alt="Birthday memory 2" class="photo" 
+                     onerror="this.onerror=null; this.src='images/photo2.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
+                <div class="photo-caption">Sweet Moments</div>
+            </div>
+        </div>
+        
+        <!-- Photo 3 -->
+        <div class="photo-container fade-in delayed-2">
+            <div class="photo-frame">
+                <img src="images/photo3.png" alt="Birthday memory 3" class="photo" 
+                     onerror="this.onerror=null; this.src='images/photo3.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
+                <div class="photo-caption">Cherished Times</div>
+            </div>
+        </div>
+    </div>
+</section>
         
         <!-- Footer -->
         <footer class="footer">
@@ -122,3 +125,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
