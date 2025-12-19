@@ -16,14 +16,18 @@
 <body>
     <!-- Main Container -->
     <main class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <h1 class="title">
-                <span class="title-line">Happy Birthday</span>
-                <span class="title-line"><span class="highlight">✨</span>🎂<span class="highlight">✨</span></span>
-            </h1>
-            <p class="subtitle">A celebration of joy, memories, and beautiful moments</p>
-        </header>
+        <!-- Hero Section with Background Image -->
+        <section class="hero-section">
+            <div class="hero-image" id="heroImage"></div>
+            <div class="hero-overlay"></div>
+            <header class="header">
+                <h1 class="title">
+                    <span class="title-line">Happy Birthday</span>
+                    <span class="title-line"><span class="highlight">✨</span>🎂<span class="highlight">✨</span></span>
+                </h1>
+                <p class="subtitle">A celebration of joy, memories, and beautiful moments</p>
+            </header>
+        </section>
         
         <!-- Gift Section -->
         <section class="gift-section">
@@ -47,7 +51,7 @@
         
         <!-- Birthday Card (Initially Hidden) -->
         <section class="card-section hidden" id="cardSection">
-            <div class="birthday-card">
+            <div class="birthday-card" id="birthdayCard">
                 <div class="card-header">
                     <h2 class="card-title">A Special Message</h2>
                     <div class="card-decoration">
@@ -56,17 +60,29 @@
                 </div>
                 <div class="card-body">
                     <p class="card-message">
-                        On this wonderful day, I wish you endless joy, laughter, and beautiful memories. 
-                        May your year ahead be filled with exciting adventures, personal growth, and moments 
-                        that make your heart smile. You deserve all the happiness in the world.
+                        Happy Birthday ✨
                     </p>
                     <p class="card-message">
-                        Celebrate yourself today and always remember how special you are to those around you. 
-                        Here's to another amazing year!
+                        Even though we live in different countries and haven't met yet,
+                        it's still nice knowing there's someone out there I can call family.
+                    </p>
+                    <p class="card-message">
+                        Distance doesn't stop good wishes,
+                        so today I'm sending you a quiet reminder
+                        that you're thought of and wished well.
+                    </p>
+                    <p class="card-message">
+                        I hope this year brings you calm days,
+                        happy moments you didn't expect,
+                        and reasons to smile even on ordinary days.
+                    </p>
+                    <p class="card-message">
+                        May life be kind to you,
+                        and may you always feel supported,
+                        no matter where you are in the world.
                     </p>
                     <div class="card-signature">
-                        <p>With love,</p>
-                        <p class="signature">Your Friends & Family</p>
+                        <p>— yeabkal</p>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -77,40 +93,15 @@
             </div>
         </section>
         
-        <!-- Photo Gallery (Initially Hidden) -->
-<section class="gallery-section hidden" id="gallerySection">
-    <h2 class="gallery-title">Beautiful Memories</h2>
-    <p class="gallery-subtitle">Moments worth celebrating</p>
-    
-    <div class="photo-gallery">
-        <!-- Photo 1 - Will try PNG first, then JPG as fallback -->
-        <div class="photo-container fade-in">
-            <div class="photo-frame">
-                <img src="images/photo1.png" alt="Birthday memory 1" class="photo" 
-                     onerror="this.onerror=null; this.src='images/photo1.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
-                <div class="photo-caption">Joyful Celebration</div>
+        <!-- Image Section (Initially Hidden) -->
+        <section class="image-section hidden" id="imageSection">
+            <div class="image-grid" id="imageGrid">
+                <!-- Images will be positioned randomly by JavaScript -->
+                <img src="images/sticker1.png" alt="Birthday sticker 1" class="sticker" data-id="1" onerror="this.style.display='none'">
+                <img src="images/sticker2.png" alt="Birthday sticker 2" class="sticker" data-id="2" onerror="this.style.display='none'">
+                <img src="images/sticker3.png" alt="Birthday sticker 3" class="sticker" data-id="3" onerror="this.style.display='none'">
             </div>
-        </div>
-        
-        <!-- Photo 2 -->
-        <div class="photo-container fade-in delayed-1">
-            <div class="photo-frame">
-                <img src="images/photo2.png" alt="Birthday memory 2" class="photo" 
-                     onerror="this.onerror=null; this.src='images/photo2.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
-                <div class="photo-caption">Sweet Moments</div>
-            </div>
-        </div>
-        
-        <!-- Photo 3 -->
-        <div class="photo-container fade-in delayed-2">
-            <div class="photo-frame">
-                <img src="images/photo3.png" alt="Birthday memory 3" class="photo" 
-                     onerror="this.onerror=null; this.src='images/photo3.jpg'; this.onerror=function(){this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'};">
-                <div class="photo-caption">Cherished Times</div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
         
         <!-- Footer -->
         <footer class="footer">
@@ -122,7 +113,9 @@
     <!-- Confetti Container -->
     <div id="confettiContainer"></div>
     
+    <!-- Continuous Confetti Container -->
+    <div id="confettiRain"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
-
