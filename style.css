@@ -1,4 +1,4 @@
-﻿/* CSS Reset */
+/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +7,14 @@
 
 /* Base Styles */
 :root {
-    --deep-green: #006400;
+    --deep-green: #013020; /* Updated from #006400 */
     --cream: #f8f5f0;
     --soft-gold: #d4af37;
     --light-gold: #f4e8c1;
     --muted-gray: #5a5a5a;
     --shadow: rgba(0, 0, 0, 0.1);
     --transition: all 0.4s ease-in-out;
+    --card-bg: #f8f5f0; /* Cream background for card */
 }
 
 body {
@@ -32,29 +33,68 @@ body {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding: 30px;
-    background-color: var(--cream);
+    padding: 0; /* Removed padding to allow full-width hero */
+    background-color: var(--deep-green); /* Container background matches body */
     border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Darker shadow for contrast */
     position: relative;
     overflow: hidden;
 }
 
+/* Hero Section with Background Image */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+    margin-bottom: 40px;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    animation: zoomInOut 20s ease-in-out infinite;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(1, 48, 32, 0) 0%,
+        rgba(1, 48, 32, 0.3) 50%,
+        rgba(1, 48, 32, 0.7) 75%,
+        rgba(1, 48, 32, 1) 100%
+    );
+}
+
 /* Header Styles */
 .header {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    margin-bottom: 50px;
-    padding-top: 20px;
+    padding-top: 100px;
     animation: fadeInUp 1s ease-out;
 }
 
 .title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 3.5rem;
-    color: var(--deep-green);
+    font-size: 4rem; /* Larger font size */
+    color: var(--cream); /* White/cream color */
     margin-bottom: 15px;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .title-line {
@@ -64,14 +104,16 @@ body {
 .highlight {
     color: var(--soft-gold);
     animation: subtleGlow 2s infinite alternate;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
 .subtitle {
     font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: 2px;
-    color: var(--muted-gray);
+    color: var(--cream); /* White/cream color */
     text-transform: uppercase;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Gift Section */
@@ -80,6 +122,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 60px 0;
+    padding: 0 30px; /* Add padding for mobile */
 }
 
 .gift-container {
@@ -185,7 +228,7 @@ body {
 
 .instruction {
     font-size: 1rem;
-    color: var(--muted-gray);
+    color: var(--cream); /* Updated for better contrast */
     font-style: italic;
     letter-spacing: 0.5px;
     animation: pulse 2s infinite;
@@ -194,19 +237,27 @@ body {
 /* Card Section */
 .card-section {
     margin: 40px 0;
+    padding: 0 30px; /* Add padding for mobile */
     animation: fadeInUp 1s ease-out;
 }
 
 .birthday-card {
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 20px;
     padding: 40px;
     max-width: 700px;
     margin: 0 auto;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-top: 6px solid var(--soft-gold);
     position: relative;
     overflow: hidden;
+    transition: background-color 1s ease-in-out;
+}
+
+.birthday-card.fade-background {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
 }
 
 .birthday-card::before {
@@ -217,6 +268,10 @@ body {
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, var(--soft-gold), var(--light-gold), var(--soft-gold));
+}
+
+.birthday-card.fade-background::before {
+    display: none;
 }
 
 .card-header {
@@ -245,19 +300,24 @@ body {
     font-size: 1.15rem;
     margin-bottom: 20px;
     line-height: 1.8;
+    transition: color 1s ease-in-out;
+}
+
+.birthday-card.fade-background .card-message {
+    color: var(--cream); /* Change text color when background fades */
 }
 
 .card-signature {
     margin-top: 40px;
     text-align: right;
     font-style: italic;
+    font-size: 1.2rem;
+    color: var(--deep-green);
+    transition: color 1s ease-in-out;
 }
 
-.signature {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: var(--deep-green);
-    margin-top: 5px;
+.birthday-card.fade-background .card-signature {
+    color: var(--cream); /* Change signature color when background fades */
 }
 
 .card-footer {
@@ -280,86 +340,49 @@ body {
     animation-delay: 0.8s;
 }
 
-/* Gallery Section */
-.gallery-section {
-    margin: 60px 0;
-    animation: fadeInUp 1s ease-out;
+/* Image Section */
+.image-section {
+    margin: 40px 0;
+    padding: 0 30px; /* Add padding for mobile */
+    min-height: 500px;
+    position: relative;
 }
 
-.gallery-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--deep-green);
-    text-align: center;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.gallery-subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--muted-gray);
-    margin-bottom: 40px;
-    letter-spacing: 1.5px;
-}
-
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.photo-container {
-    opacity: 0;
-}
-
-.photo-frame {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    transition: var(--transition);
-    height: 100%;
-    background-color: white;
-}
-
-.photo-frame:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.photo {
+.image-grid {
+    position: relative;
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    transition: var(--transition);
+    min-height: 500px;
 }
 
-.photo-frame:hover .photo {
-    transform: scale(1.03);
+.sticker {
+    position: absolute;
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 0.3s ease;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
-.photo-caption {
-    padding: 20px;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: var(--deep-green);
-    background-color: white;
+.sticker.visible {
+    opacity: 1;
+}
+
+.sticker:hover {
+    transform: scale(1.05) rotate(5deg);
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
 }
 
 /* Footer */
 .footer {
     text-align: center;
     margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(0, 100, 0, 0.1);
+    padding: 30px;
+    border-top: 1px solid rgba(248, 245, 240, 0.1); /* Lighter border for contrast */
 }
 
 .footer-text {
     font-size: 1rem;
-    color: var(--muted-gray);
+    color: var(--cream); /* Updated for better contrast */
     margin-bottom: 10px;
 }
 
@@ -370,7 +393,7 @@ body {
 
 .copyright {
     font-size: 0.9rem;
-    color: var(--muted-gray);
+    color: var(--cream); /* Updated for better contrast */
     opacity: 0.8;
 }
 
@@ -383,6 +406,43 @@ body {
     border-radius: 50%;
     opacity: 0.8;
     z-index: 1000;
+    pointer-events: none;
+}
+
+/* Continuous Confetti Rain */
+#confettiRain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#confettiRain.active {
+    opacity: 0.3; /* Low opacity for subtle effect */
+}
+
+.confetti-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--soft-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    top: -20px;
+    animation: confettiRain linear infinite;
+}
+
+.confetti-particle:nth-child(odd) {
+    background-color: var(--light-gold);
+}
+
+.confetti-particle:nth-child(3n) {
+    background-color: #fff;
 }
 
 /* Utility Classes */
@@ -446,7 +506,7 @@ body {
         text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
     }
     to {
-        text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+        text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 0 20px rgba(212, 175, 55, 0.4);
     }
 }
 
@@ -474,15 +534,47 @@ body {
     }
 }
 
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes confettiRain {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0.3;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 20px;
+        padding: 0;
         border-radius: 16px;
     }
     
+    .hero-section {
+        height: 300px;
+        border-radius: 16px 16px 0 0;
+    }
+    
+    .header {
+        padding-top: 70px;
+    }
+    
     .title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .subtitle {
@@ -523,18 +615,37 @@ body {
         font-size: 1.8rem;
     }
     
-    .gallery-title {
-        font-size: 2rem;
+    .card-message {
+        font-size: 1rem;
     }
     
-    .photo-gallery {
-        grid-template-columns: 1fr;
+    .sticker {
+        max-width: 150px;
+        max-height: 150px;
+    }
+    
+    .gift-section,
+    .card-section,
+    .image-section {
+        padding: 0 20px;
     }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .hero-section {
+        height: 250px;
+    }
+    
+    .header {
+        padding-top: 50px;
+    }
+    
     .title {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .gift-box {
@@ -566,6 +677,12 @@ body {
     }
     
     .card-message {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .sticker {
+        max-width: 120px;
+        max-height: 120px;
     }
 }
+
