@@ -41,7 +41,15 @@ body {
     overflow: hidden;
 }
 
-/* Hero Section with Background Image */
+
+
+/* Header Styles */
+.header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 100px;
+    animation: fadeInUp 1s ease-out;/* Hero Section with Background Image */
 .hero-section {
     position: relative;
     width: 100%;
@@ -57,34 +65,24 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+    /* REPLACE THIS URL WITH YOUR OWN BACKGROUND IMAGE */
+    background-image: url('images/hero-background.jpg');
     background-size: cover;
     background-position: center;
     animation: zoomInOut 20s ease-in-out infinite;
 }
 
-.hero-overlay {
+/* Alternative if you want to use an <img> tag instead */
+.hero-image-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(1, 48, 32, 0) 0%,
-        rgba(1, 48, 32, 0.3) 50%,
-        rgba(1, 48, 32, 0.7) 75%,
-        rgba(1, 48, 32, 1) 100%
-    );
+    object-fit: cover;
+    animation: zoomInOut 20s ease-in-out infinite;
+    display: none; /* Hidden by default, enable if using <img> */
 }
-
-/* Header Styles */
-.header {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding-top: 100px;
-    animation: fadeInUp 1s ease-out;
 }
 
 .title {
@@ -685,4 +683,5 @@ body {
         max-height: 120px;
     }
 }
+
 
