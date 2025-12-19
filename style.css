@@ -83,7 +83,6 @@ body {
     animation: zoomInOut 20s ease-in-out infinite;
     display: none; /* Hidden by default, enable if using <img> */
 }
-}
 
 .title {
     font-family: 'Playfair Display', serif;
@@ -683,5 +682,6 @@ body {
         max-height: 120px;
     }
 }
+
 
 
