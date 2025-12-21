@@ -338,36 +338,41 @@ body {
     animation-delay: 0.8s;
 }
 
-/* Image Section */
+/* Single Sticker Section */
 .image-section {
-    margin: 40px 0;
-    padding: 0 30px; /* Add padding for mobile */
-    min-height: 500px;
-    position: relative;
+    margin: 60px 0;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
 }
 
-.image-grid {
-    position: relative;
+.single-sticker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    min-height: 500px;
 }
 
-.sticker {
-    position: absolute;
-    max-width: 200px;
-    max-height: 200px;
+.single-sticker {
+    max-width: 80vw; /* Will take up to 80% of screen width */
+    max-height: 60vh; /* Will take up to 60% of screen height */
+    width: auto;
+    height: auto;
     opacity: 0;
-    transition: opacity 1s ease-in-out, transform 0.3s ease;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+    transition: opacity 1.5s ease-in-out, transform 0.5s ease;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+    animation: float 4s ease-in-out infinite;
 }
 
-.sticker.visible {
+.single-sticker.visible {
     opacity: 1;
 }
 
-.sticker:hover {
-    transform: scale(1.05) rotate(5deg);
-    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+.single-sticker:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
 }
 
 /* Footer */
@@ -683,6 +688,7 @@ body {
         max-height: 120px;
     }
 }
+
 
 
 
