@@ -161,61 +161,21 @@ function fadeCardBackground() {
     }, 2000);
 }
 
-// Function to show images in random positions
+// Function to show single sticker
 function showImages() {
     // Show image section
     imageSection.classList.remove('hidden');
     imageSection.style.animation = 'fadeInUp 1s ease-out';
     
-    // Get all sticker images
-    const stickers = document.querySelectorAll('.sticker');
+    // Get the single sticker
+    const sticker = document.querySelector('.single-sticker');
     
-    // Calculate available space
-    const gridWidth = imageGrid.offsetWidth;
-    const gridHeight = imageGrid.offsetHeight;
-    
-    // Track used positions to avoid overlap
-    const usedPositions = [];
-    const minDistance = 150; // Minimum distance between stickers
-    
-    stickers.forEach((sticker, index) => {
-        // Set random position
-        let x, y;
-        let attempts = 0;
-        const maxAttempts = 50;
-        
-        do {
-            x = Math.random() * (gridWidth - 200); // Account for max sticker width
-            y = Math.random() * (gridHeight - 200); // Account for max sticker height
-            attempts++;
-            
-            // Check if position is too close to existing stickers
-            let tooClose = false;
-            for (const pos of usedPositions) {
-                const distance = Math.sqrt(Math.pow(x - pos.x, 2) + Math.pow(y - pos.y, 2));
-                if (distance < minDistance) {
-                    tooClose = true;
-                    break;
-                }
-            }
-            
-            if (!tooClose || attempts >= maxAttempts) {
-                usedPositions.push({ x, y });
-                break;
-            }
-        } while (attempts < maxAttempts);
-        
-        // Apply position with slight random rotation
-        const rotation = Math.random() * 20 - 10; // -10 to 10 degrees
-        sticker.style.left = `${x}px`;
-        sticker.style.top = `${y}px`;
-        sticker.style.transform = `rotate(${rotation}deg)`;
-        
-        // Make sticker visible with delay
-        setTimeout(() => {
+    // Make sticker visible with delay
+    setTimeout(() => {
+        if (sticker) {
             sticker.classList.add('visible');
-        }, index * 300);
-    });
+        }
+    }, 500);
 }
 
 // Add hover effect for desktop
@@ -277,3 +237,4 @@ window.addEventListener('load', function() {
         }
     });
 });
+
